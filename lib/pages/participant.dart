@@ -35,6 +35,12 @@ class _ParticipantState extends State<Participant> {
     await _engine
         .setChannelProfile(ChannelProfileType.channelProfileLiveBroadcasting);
     await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
+    _engine.registerEventHandler(
+      RtcEngineEventHandler(
+        onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
+        },
+      ),
+    );
   }
 
   @override
